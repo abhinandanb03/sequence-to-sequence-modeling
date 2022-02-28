@@ -7,3 +7,5 @@
 curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm<br>
 curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer<br>
 </h3>
+
+<h4>To get the web-application runnning, run app.py and it will start a local server in port 5000 </h4>
