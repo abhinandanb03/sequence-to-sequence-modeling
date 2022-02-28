@@ -1,6 +1,5 @@
-<h1> This program outputs summary for playlist of video or audio files u might have</h1><br>
+<h1> This program outputs summary for playlist of video or audio files u might have</h1>
 <h3>Supports english only</h3><br>
-<br>
 
 <h3>To get the program running make sure to download deepspeech's pretrained model by running the below code in the root directory<br>
   
