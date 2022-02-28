@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Automatic Speech Recognition By Augmenting Video Fragments</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 align="center">
+                Automatic Speech Recognition By Augmenting Video Fragments
+            </h1>
+            <p align="center">
+                Upload video or audio files to get a summary.<br>
+                You can upload multiple files like playlist of videos or u can upload a large file and get a summary of it.<br>
+                <strong>Note: Large files or more files take longer time to process.</strong>
+            </p>
+            <br>
+            <div style="padding:20px;">
+                <p>
+                    {% if filenames %}
+                        {% for filename in filenames %}
+                            <div style="padding:20px;float:left;">
+                                <video autoplay="autoplay" controls="controls" preload="preload">
+                                    <source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+                                </video> 
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <h3>Summary:</h3>
+                            <span class=flashes>
+                                {% for message in messages %}
+                                    <p>{{ message }}</p>
+                                {% endfor %}
+                            </span>
+                        {% endif %}
+                    {% endwith %}
+                </p>
+                <form method="post" action="/" enctype="multipart/form-data">
+                    <dl>
+                        <p>
+                            <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+                        </p>
+                    </dl>
+                    <p>
+                        <input type="submit" value="Submit">
+                    </p>
+                </form>
+                
+        </div>
+    </body>
+</html>
